@@ -1,50 +1,48 @@
-import { Card, Container, Grid, Text, Image, Badge, Group, ScrollArea } from '@mantine/core';
+import { Card, Container, Grid, Text, Image, Badge, Group, ScrollArea, createStyles } from '@mantine/core';
 import React from 'react'
 import CardList from '../components/CardList';
 import Header from '../components/Header';
 import SearchScan from '../components/SearchScan';
 import TrendingSlider from '../components/TrendingSlider';
 import { resturentData, sliderItem, tagList } from "../utils/sliderData";
+import { leftSideStyle } from '../utils/styles/GlobalStyle';
 
 const ResturentList = () => {
+const { classes } = leftSideStyle();
 
 const searchInput = (value: any) => {
   console.log(value);
 };
 
   return (
-    <div>
-      <h3>Resturent List Page</h3>
+    <div className={classes.sideBar}>
+      {/* className={classes.sideBar} */}
       <Container>
         <Header />
         <SearchScan searchInput={searchInput} />
         <Grid>
           <Grid.Col span={3}>
-            <h4>TRENDING TODAY</h4>
+            <Text fz='15px' fw={500} color='#FFFFFF'>TRENDING TODAY</Text>
           </Grid.Col>
           <Grid.Col span={9}>
             <TrendingSlider sliderArray={sliderItem} />
           </Grid.Col>
         </Grid>
 
-      <ScrollArea w={'100%'} h={50} pt={10}>
-        <Group position='left' noWrap={true}>
-          {tagList.length && tagList.map((item: any) => (
-                  <Badge
-                    key={item.id}
-                    variant="outline"
-                    color="red"
-                    
-                  >
-                    {item.name}
-                  </Badge>
-            ))}
-        </Group>
-      </ScrollArea>
+        <ScrollArea w={"100%"} h={50} pt={10}>
+          <Group position="left" noWrap={true}>
+            {tagList.length &&
+              tagList.map((item: any) => (
+                <Badge key={item.id} variant="outline" color="red">
+                  {item.name}
+                </Badge>
+              ))}
+          </Group>
+        </ScrollArea>
 
         <Grid>
           <Grid.Col span={3}>
-            <h4>RESTAURANTS NEARBY</h4>
+            <Text fz='15px' pb='15px' fw={500} color='#FFFFFF'>RESTAURANTS NEARBY</Text>
           </Grid.Col>
           {/* <Grid.Col span={9}>
             <TrendingSlider sliderArray={sliderItem} />

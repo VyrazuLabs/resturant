@@ -29,6 +29,23 @@ export const useStyles = createStyles((theme) => ({
   },
 }));
 
+export const leftSideStyle = createStyles((theme) => ({
+  sideBar: {
+    position: 'relative',
+    "&::after": {
+      content: `""`,
+      position: "absolute",
+      width: 147,
+      height: "75vh",
+      background: theme.colors.yellow[6],
+      borderRadius: "0px 0px 251px 0px",
+      top: 0,
+      left: 0,
+      zIndex: -1
+    },
+  },
+}));
+
 
 export function GlobalStyle() {
   return (

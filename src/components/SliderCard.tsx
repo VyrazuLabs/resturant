@@ -21,7 +21,7 @@ export const SliderCard = ({ image, category }: CardProps) => {
           className={classes.card}
         >
         </Paper>
-        <Text>{category}</Text>
+        <Text fw={500} fz='xs'>{category}</Text>
       </>
     );
 };

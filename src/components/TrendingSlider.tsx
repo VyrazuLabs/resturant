@@ -12,7 +12,7 @@ const TrendingSlider = ({sliderArray}: any) => {
     const slides =
       sliderArray &&
       sliderArray.map((item: any) => (
-        <Carousel.Slide key={item.title}>
+        <Carousel.Slide gap={25} key={item.title}>
           <SliderCard {...item} />
           {/* <Text>{ item.category }</Text> */}
         </Carousel.Slide>
@@ -21,12 +21,12 @@ const TrendingSlider = ({sliderArray}: any) => {
   return (
     <>
       <Carousel
-        // loop={true}
+        loop
         slideSize={mobile? '35%' : '15%'}
         // breakpoints={[{ maxWidth: "sm", slideSize: "30%", slideGap: 2 }]}
-        // slideGap="xl"
-        align="center"
-        // slidesToScroll={1}
+        // slideGap="md"
+        align="start"
+        // slidesToScroll={3}
         styles={{
           control: {
             "&[data-inactive]": {
