@@ -39,7 +39,7 @@ export const leftSideStyle = createStyles((theme) => ({
       height: "75vh",
       background: theme.colors.yellow[6],
       borderRadius: "0px 0px 251px 0px",
-      top: 0,
+      top: -75,
       left: 0,
       zIndex: -1
     },

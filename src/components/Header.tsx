@@ -4,15 +4,22 @@ import logo from "../assets/logos/logoicon.svg";
 import logoText from "../assets/logos/logotext.png";
 import cart from "../assets/logos/shoppingcart.svg";
 import hamburger from "../assets/logos/hamburger.svg";
+import { useNavigate } from "react-router-dom";
 
 import { Container, ActionIcon, Group, Image } from "@mantine/core";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  	const goBack = () => {
+      navigate(-1);
+    };
+
   return (
     <>
-      <Container p="70px 0px 35px 0px">
+      <Container p="20px 10px">
         <Group position="apart">
-          <ActionIcon>
+          <ActionIcon onClick={goBack}>
             <Image width="auto" height="auto" src={navArrow} />
           </ActionIcon>
           <Group position="center" spacing="2px">

@@ -4,6 +4,7 @@ import scanIcon from "../assets/logos/scan.svg";
 import locationIcon from "../assets/logos/location-icon.svg";
 import { wrap } from 'module';
 import { useMediaQuery } from '@mantine/hooks';
+import { Link, NavLink } from "react-router-dom";
 
 interface ResturentProps {
   image: string;
@@ -49,11 +50,12 @@ const useStyle = createStyles(() => ({
 
 const CardList = ({ image, category, title, rating, ratingCount, openingTime, closingTime, distance, address, categoryItem }: ResturentProps) => {
   const { classes } = useStyle();
-    const theme = useMantineTheme();
-    const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const theme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
   return (
     <>
+      <NavLink to={`/details/${title}`} style={{'textDecoration': 'none'}}>
       <Card
         className={classes.cardStyle}
         shadow="md"
@@ -75,7 +77,7 @@ const CardList = ({ image, category, title, rating, ratingCount, openingTime, cl
               />
             </Box>
             <div>
-              <Title order={5} align="left">
+              <Title order={5} align="left" color="red">
                 {title}
               </Title>
               <Group position="left" className={classes.textStyle}>
@@ -85,7 +87,7 @@ const CardList = ({ image, category, title, rating, ratingCount, openingTime, cl
               <Group className={classes.textStyle} position="left">
                 <>
                   <Text variant="outline">We're open :</Text>
-                  <Text variant="outline">
+                  <Text variant="outline" color="#2A72DF">
                     {openingTime} - {closingTime}
                   </Text>
                 </>
@@ -104,7 +106,7 @@ const CardList = ({ image, category, title, rating, ratingCount, openingTime, cl
               <Group className={classes.addressStyle} position="left">
                 <Image width="auto" height="auto" src={locationIcon} />
                 <Text variant="outline">{distance}</Text> |
-                <Text variant="outline">
+                  <Text variant="outline">
                   {mobile
                     ? address.substring(0, 20).concat("...")
                     : address.substring(0, 40).concat("...")}
@@ -113,7 +115,8 @@ const CardList = ({ image, category, title, rating, ratingCount, openingTime, cl
             </div>
           </Flex>
         </Card.Section>
-      </Card>
+        </Card>
+      </NavLink>
     </>
   );
 };

@@ -1,7 +1,6 @@
 import { Card, Container, Grid, Text, Image, Badge, Group, ScrollArea, createStyles } from '@mantine/core';
 import React from 'react'
 import CardList from '../components/CardList';
-import Header from '../components/Header';
 import SearchScan from '../components/SearchScan';
 import TrendingSlider from '../components/TrendingSlider';
 import { resturentData, sliderItem, tagList } from "../utils/sliderData";
@@ -18,7 +17,6 @@ const searchInput = (value: any) => {
     <div className={classes.sideBar}>
       {/* className={classes.sideBar} */}
       <Container>
-        <Header />
         <SearchScan searchInput={searchInput} />
         <Grid>
           <Grid.Col span={3}>
@@ -29,7 +27,7 @@ const searchInput = (value: any) => {
           </Grid.Col>
         </Grid>
 
-        <ScrollArea w={"100%"} h={50} pt={10}>
+        <ScrollArea w={"100%"} h={50} pt={10} type='never'>
           <Group position="left" noWrap={true}>
             {tagList.length &&
               tagList.map((item: any) => (
@@ -49,7 +47,7 @@ const searchInput = (value: any) => {
           </Grid.Col> */}
         </Grid>
 
-        {resturentData.length &&
+        {resturentData?.length &&
           resturentData.map((item: any) => (
             <CardList key={item.title} {...item} />
           ))}
