@@ -52,7 +52,33 @@ export const specialFoodItems = [
   },
 ];
 
-// color code is comparng between value of enum foodCategoryType
+// color code is comparing between value of enum foodCategoryType
 export const foodCategoryColor = ["#FF1111", "#43B61A", "#5BC2B6", "#FF1111", '#975a16', "#FAC214", "#43B61A"];
 
+export const itemDetails = {
+  description:
+    "A sandwich consisting of a patty made from ground chicken, served in a bun, typically hot and often with other ingredients.",
+  extraItems: [
+    {
+      item: "Double Quarter Pounder with Cheese Meal [Large]",
+      unitPrice: 5,
+      quantity: 1,
+    },
+    {
+      item: "Single Quarter Pounder with Cheese Meal [Large]",
+      unitPrice: 5,
+      quantity: 3,
+    },
+    {
+      item: "Sizzle",
+      unitPrice: 2,
+      quantity: 2,
+    },
+    {
+      item: "Side",
+      unitPrice: 3,
+      quantity: 4,
+    },
+  ],
+};
 

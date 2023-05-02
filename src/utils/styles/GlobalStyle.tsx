@@ -31,7 +31,7 @@ export const useStyles = createStyles((theme) => ({
 
 export const leftSideStyle = createStyles((theme) => ({
   sideBar: {
-    position: 'relative',
+    position: "relative",
     "&::after": {
       content: `""`,
       position: "absolute",
@@ -39,11 +39,25 @@ export const leftSideStyle = createStyles((theme) => ({
       height: "75vh",
       background: theme.colors.yellow[6],
       borderRadius: "0px 0px 251px 0px",
-      top: -75,
+      top: -85,
       left: 0,
-      zIndex: -1
+      zIndex: -1,
     },
   },
+  textStyle: {
+    fontSize: 11,
+  },
+  // table: {
+  //   td: {
+  //     border: 'none',
+  //   },
+  //   tr: {
+  //     border: 'none',
+  //   },
+  //   th: {
+  //     border: 'none'
+  //   }
+  // }
 }));
 
 

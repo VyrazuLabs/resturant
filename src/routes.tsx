@@ -15,7 +15,7 @@ const routes = (
      <Route path="/home/trending" element={<ResturentList />}></Route>
      <Route path="/cart" element={<Cart />}></Route>
      <Route path="/details/:id" element={<ResturentDetails />}></Route>
-     <Route path="/add-item" element={<AddItemDetails />}></Route>
+     <Route path="/items/:id" element={<AddItemDetails />}></Route>
      <Route path="/collapsed" element={<CollapsedDetails />}></Route>
      <Route path="/payment" element={<Payment />}></Route>
   </>

@@ -113,9 +113,9 @@ const ResturentDetails = () => {
                   {restaurantDetails.category}
                 </Text>
                 {restaurantDetails?.categoryItem.length &&
-                  restaurantDetails?.categoryItem.map((data: any) => (
+                  restaurantDetails?.categoryItem.map((data: any, id) => (
                     <>
-                      <IndicatorIcon foodCategory="CategoryList" />
+                      <IndicatorIcon key={id} foodCategory="CategoryList" />
                       <Text component="li" key={data} fz="sm" color="dimmed">
                         {data}
                       </Text>

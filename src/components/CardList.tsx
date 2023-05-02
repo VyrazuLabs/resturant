@@ -5,7 +5,6 @@ import locationIcon from "../assets/logos/location-icon.svg";
 import { wrap } from 'module';
 import { useMediaQuery } from '@mantine/hooks';
 import { Link, NavLink } from "react-router-dom";
-import IndicatorIcon from './IndicatorIcon';
 
 interface ResturentProps {
   image: string;
@@ -66,7 +65,10 @@ const CardList = ({ image, category, title, rating, ratingCount, openingTime, cl
 
   return (
     <>
-      <NavLink to={`/details/${title}`} style={{ textDecoration: "none" }}>
+      <NavLink
+        to={`/details/${title.replace(/\s+/g, '')}`}
+        style={{ textDecoration: "none" }}
+      >
         <Card
           className={classes.cardStyle}
           shadow="md"

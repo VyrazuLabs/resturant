@@ -17,6 +17,12 @@ const useStyle = createStyles(() => ({
     background: "#FFFFFF",
     boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.15)",
     borderRadius: "20px",
+    input: {
+      fontSize: "12px",
+    },
+    "input:: placeholder": {
+      fontSize: "12px",
+    },
   },
 }));
 

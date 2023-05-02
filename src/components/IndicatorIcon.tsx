@@ -26,15 +26,15 @@ const IndicatorIcon = ({ foodCategory }: FoodCategoryProps) => {
       <>
         {categoryType.length &&
           categoryType.map((item, id) => (
-            <>
-              {item === foodCategory && (
-                <Badge
-                  key={id}
-                  className={classes.circle}
-                  bg={foodCategoryColor[id]}
-                ></Badge>
-              )}
-            </>
+              <>
+                {item === foodCategory && (
+                  <Badge
+                    key={id}
+                    className={classes.circle}
+                    bg={foodCategoryColor[id]}
+                  ></Badge>
+                )}
+              </>
           ))}
       </>
     );
