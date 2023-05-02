@@ -1,5 +1,6 @@
 import { Box, Card, Flex, Group, Image, Title, Text, createStyles, Badge, Grid } from '@mantine/core';
 import React from 'react'
+import IndicatorIcon from './IndicatorIcon';
 
 
 interface FoodProps {
@@ -7,15 +8,23 @@ interface FoodProps {
   foodCategory: string;
   foodName: string;
   power: string;
-  price: number|string
+  price: number
 }
 
 const useStyle = createStyles((theme) => ({
-    cardStyle: {
-        background: theme.colors.white,
-        padding: 10
-    }
-}))
+  cardStyle: {
+    background: theme.colors.white,
+    padding: 10,
+  },
+  categoryStyle: {
+    position: 'relative',
+    right: '7px'
+  },
+  badgeStyle: {
+    textTransform: 'capitalize'
+  }
+
+}));
 
 const FoodList = ({ image, foodName, foodCategory, power, price }: FoodProps) => {
     const { classes } = useStyle();
@@ -41,22 +50,22 @@ const FoodList = ({ image, foodName, foodCategory, power, price }: FoodProps) =>
                     {foodName}
                   </Title>
                   <Text fz="20px" fw="350px" color="red" ml="xs">
-                    ${price}
+                    ${price.toFixed(2)}
                   </Text>
                 </Flex>
                 <Group position="apart" pt="7px">
                   <Group>
-                    <Text fz="11px" color="dimmed">
+                    <IndicatorIcon foodCategory={foodCategory} />
+                    <Text className={classes.categoryStyle} fz="11px" color="dimmed">
                       {foodCategory}
                     </Text>
-                    <Text fz="11px" color="dimmed">
+                    <IndicatorIcon foodCategory='Calory' />
+                    <Text className={classes.categoryStyle} fz="11px" color="dimmed">
                       {power}
                     </Text>
                   </Group>
-                  <Badge size="sm" variant="outline" color="red">
-                    <Text transform="capitalize" fz="11px">
-                      Details
-                    </Text>
+                  <Badge size="8px" className={classes.badgeStyle} fz='11px' variant="outline" color="red">
+                    Details
                   </Badge>
                 </Group>
               </Flex>

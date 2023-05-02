@@ -1,5 +1,5 @@
 import { Card, Container, Grid, Text, Image, Badge, Group, ScrollArea, createStyles } from '@mantine/core';
-import React from 'react'
+import React, { useState } from 'react'
 import CardList from '../components/CardList';
 import SearchScan from '../components/SearchScan';
 import TrendingSlider from '../components/TrendingSlider';
@@ -7,8 +7,9 @@ import { resturentData, sliderItem, tagList } from "../utils/sliderData";
 import { leftSideStyle } from '../utils/styles/GlobalStyle';
 
 const ResturentList = () => {
-const { classes } = leftSideStyle();
-
+  const { classes } = leftSideStyle();
+  
+const [active, setActive] = useState(null);
 const searchInput = (value: any) => {
   console.log(value);
 };
@@ -31,7 +32,7 @@ const searchInput = (value: any) => {
           <Group position="left" noWrap={true}>
             {tagList.length &&
               tagList.map((item: any) => (
-                <Badge key={item.id} variant="outline" color="red">
+                <Badge key={item.id} variant={active === item? 'filled' : 'outline'} onClick={() => setActive(item)} color="red">
                   {item.name}
                 </Badge>
               ))}

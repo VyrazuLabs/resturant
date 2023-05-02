@@ -1,6 +1,6 @@
-import {  Box, Center, Container, Text, Card, Image, createStyles, Title, Group, Rating, useMantineTheme, Grid, ActionIcon, ScrollArea, Badge } from '@mantine/core';
+import {  Box, Center, Container, Text, Card, Image, createStyles, Title, Group, Rating, useMantineTheme, Grid, ActionIcon, ScrollArea, Badge, Flex } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import React from 'react'
+import React, { useState } from 'react'
 import { restaurantDetails, specialFoodItems, specialList } from '../utils/detailsData';
 import { leftSideStyle } from '../utils/styles/GlobalStyle';
 import locationIcon from "../assets/logos/location-icon.svg";
@@ -8,6 +8,7 @@ import direction from "../assets/logos/direction-icon.svg";
 import searchIcon from "../assets/logos/search-icon.svg";
 import FoodList from '../components/FoodList';
 import foodDetails from "../assets/images/DetailsImage.svg";
+import IndicatorIcon from '../components/IndicatorIcon';
 
 const useStyle = createStyles((theme) => ({
   cardStyle: {
@@ -44,23 +45,33 @@ const useStyle = createStyles((theme) => ({
     listStyle: "none",
     flexWrap: "wrap",
     li: {
-      padding: "2px 5px 0px 0px",
+      padding: "0px 10px 0px 7px",
       fontSize: 11,
       margin: 1,
+      position: "relative",
+      bottom: "7px",
     },
   },
   addressStyle: {
     gap: 4,
     fontSize: 11,
   },
+  underline: {
+    position: "relative",
+    backgroundImage: 'linear-gradient(to right, #D61D4F, #D61D4F)',
+    backgroundPosition: "bottom left",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100% 2px",
+    lineHeight: 2
+  },
 }));
 
 const ResturentDetails = () => {
-
   const { classes } = useStyle();
   // const { classes: leftsideClasses } = leftSideStyle();
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const [active, setActive] = useState(null);
 
   return (
     <>
@@ -83,14 +94,16 @@ const ResturentDetails = () => {
                 <Text fw={"bold"}>({restaurantDetails.ratingCount})</Text>
               </Group>
 
-              <Group className={classes.textStyle} position="left">
+              <Group className={classes.textStyle} position="apart">
                 <>
-                  <Text variant="outline">We're open :</Text>
-                  <Text variant="outline" color="#2A72DF">
-                    {restaurantDetails.openingTime} -{" "}
-                    {restaurantDetails.closingTime}
-                  </Text>
-                  <Group>
+                  <Group position="left">
+                    <Text variant="outline">We're open :</Text>
+                    <Text variant="outline" color="#2A72DF">
+                      {restaurantDetails.openingTime} -{" "}
+                      {restaurantDetails.closingTime}
+                    </Text>
+                  </Group>
+                  <Group position="right">
                     <Image width="auto" height="auto" src={direction} />
                   </Group>
                 </>
@@ -101,19 +114,22 @@ const ResturentDetails = () => {
                 </Text>
                 {restaurantDetails?.categoryItem.length &&
                   restaurantDetails?.categoryItem.map((data: any) => (
-                    <Text component="li" key={data} fz="sm" color="dimmed">
-                      {data}
-                    </Text>
+                    <>
+                      <IndicatorIcon foodCategory="CategoryList" />
+                      <Text component="li" key={data} fz="sm" color="dimmed">
+                        {data}
+                      </Text>
+                    </>
                   ))}
               </ul>
               <Group className={classes.addressStyle} position="left">
                 <Image width="auto" height="auto" src={locationIcon} />
                 <Text variant="outline">{restaurantDetails.distance}</Text> |
                 <Text variant="outline" lineClamp={1}>
-                  {restaurantDetails?.address}
-                  {/* {mobile
-                    ? restaurantDetails?.address.substring(0, 50).concat("...")
-                    : restaurantDetails?.address.substring(0, 80).concat("...")} */}
+                  {/* {restaurantDetails?.address} */}
+                  {mobile
+                    ? restaurantDetails?.address.substring(0, 40).concat("...")
+                    : restaurantDetails?.address.substring(0, 80).concat("...")}
                 </Text>
               </Group>
             </Card.Section>
@@ -131,12 +147,15 @@ const ResturentDetails = () => {
             <ScrollArea w={"100%"} h={50} type="never">
               <Group position="left" noWrap={true}>
                 {specialList.length &&
-                  specialList.map((item: any) => (
-                    <Text key={item.id} color="red" fz="12px" fw={350}>
-                      {item.name}
-                    </Text>
+                  specialList.map((item: any, id) => (
+                    <>
+                      <Text onClick={() => setActive(item)} className={active === item?`${classes.underline}` : ''} key={id} color="red" fz="12px" fw={500}>
+                        {item.name}
+                      </Text>
+                    </>
                   ))}
               </Group>
+                  {/* <div className={classes.underline}></div> */}
             </ScrollArea>
           </Grid.Col>
         </Grid>
