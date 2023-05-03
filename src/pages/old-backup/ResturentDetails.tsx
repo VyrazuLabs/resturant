@@ -1,14 +1,14 @@
 import {  Box, Center, Container, Text, Card, Image, createStyles, Title, Group, Rating, useMantineTheme, Grid, ActionIcon, ScrollArea, Badge, Flex } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import React, { useState } from 'react'
-import { restaurantDetails, specialFoodItems, specialList } from '../utils/detailsData';
-import { leftSideStyle } from '../utils/styles/GlobalStyle';
+import { restaurantDetails, specialFoodItems, specialList } from '../../utils/detailsData';
+import { leftSideStyle } from '../../utils/styles/GlobalStyle';
 import locationIcon from "../assets/logos/location-icon.svg";
 import direction from "../assets/logos/direction-icon.svg";
 import searchIcon from "../assets/logos/search-icon.svg";
-import FoodList from '../components/FoodList';
+import FoodList from '../../components/FoodList';
 import foodDetails from "../assets/images/DetailsImage.svg";
-import IndicatorIcon from '../components/IndicatorIcon';
+import IndicatorIcon from '../../components/IndicatorIcon';
 
 const useStyle = createStyles((theme) => ({
   cardStyle: {

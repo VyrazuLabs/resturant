@@ -1,42 +1,19 @@
 import { Card, Container, createStyles, Group, Rating, Title, Text, Image, Grid, useMantineTheme, Divider, Input, Box, Button } from '@mantine/core';
 import React, { useState } from 'react'
-import { itemDetails, restaurantDetails, specialFoodItems } from '../utils/detailsData';
-import { leftSideStyle } from '../utils/styles/GlobalStyle';
-import direction from "../assets/logos/direction-icon.svg";
-import locationIcon from "../assets/logos/location-icon.svg";
+import { itemDetails, restaurantDetails, specialFoodItems } from '../../utils/detailsData';
+import { leftSideStyle } from '../../utils/styles/GlobalStyle';
+import direction from "../../assets/logos/direction-icon.svg";
+import locationIcon from "../../assets/logos/location-icon.svg";
 import { useMediaQuery } from '@mantine/hooks';
-import FoodList from '../components/FoodList';
-import ExtraItemList from '../components/ExtraItemList';
-import AddRemoveQuantity from '../components/AddRemoveQuantity';
-import { US_Currency } from '../config/Helper';
-
-
-const useStyle = createStyles((theme) => ({
-  cardStyle: {
-    background: "rgba(255, 255, 255, 0.74)",
-    backdropFilter: "blur(9px)",
-    borderRadius: theme.defaultRadius,
-  },
-  addressStyle: {
-    gap: 4,
-    fontSize: 11,
-  },
-  requestInput: {
-    background: "#FFFFFF",
-    borderRadius: "10px",
-    input: {
-      border: "1px solid #7E7E7E",
-      fontSize: '12px',
-    },
-    'input:: placeholder': {
-      fontSize: '12px'
-    }
-  },
-}));
+import FoodList from '../../components/FoodList';
+import ExtraItemList from '../../components/ExtraItemList';
+import AddRemoveQuantity from '../../components/AddRemoveQuantity';
+import { US_Currency } from '../../config/Helper';
+import { useItemStyle } from './style';
 
 const AddItemDetails = () => {
 
-  const { classes } = useStyle();
+  const { classes } = useItemStyle();
   const { classes: leftsideClasses } = leftSideStyle();
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
@@ -52,7 +29,8 @@ const AddItemDetails = () => {
   }
   return (
     <>
-      <Container className={leftsideClasses.sideBar} pos="relative" fluid>
+      <Container pos="relative">
+        {/* className={leftsideClasses.sideBar} */}
         <Card padding="lg" className={classes.cardStyle}>
           <Card.Section p={10}>
             <Title order={3} fs="20px" align="left" color="red">
@@ -87,7 +65,6 @@ const AddItemDetails = () => {
             </Group>
           </Card.Section>
         </Card>
-
         <Grid m={0}>
           <Grid.Col span={2}>
             <Text fz="16px" fw={500} color="#FFFFFF">
@@ -95,7 +72,6 @@ const AddItemDetails = () => {
             </Text>
           </Grid.Col>
         </Grid>
-
         <FoodList {...specialFoodItems[0]} />
       </Container>
 
@@ -109,14 +85,17 @@ const AddItemDetails = () => {
         </Text>
       </Container>
       <Divider p={0} size="xs" />
-      {/* {itemDetails?.extraItems?.length &&
+
+      <Container>
+        {/* {itemDetails?.extraItems?.length &&
         itemDetails?.extraItems.map((item, id) => (
           <ExtraItemList key={id} {...item} />
         ))} */}
-      <ExtraItemList extraItems={itemDetails?.extraItems} />
+        <ExtraItemList extraItems={itemDetails?.extraItems} />
+      </Container>
 
-      <Divider p={0} size="xs" />
       <Container>
+      <Divider p={0} size="xs" />
         <Title align="left" size={"11px"} weight={325} pt="5px" color="red">
           Request to Chef
         </Title>
@@ -132,12 +111,12 @@ const AddItemDetails = () => {
             }}
           />
         </Box>
-      </Container>
       <Divider p={0} size="xs" />
+      </Container>
 
-      <Container pt='10px'>
+      <Container pt="10px" pb='10px'>
         <Group position="apart">
-          <Group position='left'>
+          <Group position="left">
             <AddRemoveQuantity quantity={1} newQuantity={updatedItemQuantity} />
           </Group>
           <Button variant="filled" color="red" radius="11px">

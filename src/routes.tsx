@@ -1,12 +1,10 @@
 import React from 'react'
 import { Route } from "react-router-dom";
-import AddItemDetails from './pages/AddItemDetails';
+import { ResturentDetails, ResturentList, AddItemDetails } from './pages';
 import Cart from './pages/Cart';
 import CollapsedDetails from './pages/CollapsedDetails';
 import Landing from './pages/Landing';
 import Payment from './pages/Payment';
-import ResturentDetails from './pages/ResturentDetails';
-import ResturentList from './pages/ResturentList';
 
 const routes = (
   <>

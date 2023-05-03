@@ -1,4 +1,5 @@
 import { createStyles, rem, Global } from "@mantine/core";
+import theme from "./theme";
 
 export const useStyles = createStyles((theme) => ({
   card: {
@@ -29,7 +30,7 @@ export const useStyles = createStyles((theme) => ({
   },
 }));
 
-export const leftSideStyle = createStyles((theme) => ({
+export const leftSideStyle = createStyles(() => ({
   sideBar: {
     position: "relative",
     "&::after": {
@@ -37,7 +38,7 @@ export const leftSideStyle = createStyles((theme) => ({
       position: "absolute",
       width: 147,
       height: "75vh",
-      background: theme.colors.yellow[6],
+      background: theme.colors?.yellow?.[6],
       borderRadius: "0px 0px 251px 0px",
       top: -85,
       left: 0,
@@ -47,17 +48,6 @@ export const leftSideStyle = createStyles((theme) => ({
   textStyle: {
     fontSize: 11,
   },
-  // table: {
-  //   td: {
-  //     border: 'none',
-  //   },
-  //   tr: {
-  //     border: 'none',
-  //   },
-  //   th: {
-  //     border: 'none'
-  //   }
-  // }
 }));
 
 

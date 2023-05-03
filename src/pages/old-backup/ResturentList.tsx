@@ -1,10 +1,10 @@
 import { Card, Container, Grid, Text, Image, Badge, Group, ScrollArea, createStyles } from '@mantine/core';
 import React, { useState } from 'react'
-import CardList from '../components/CardList';
-import SearchScan from '../components/SearchScan';
-import TrendingSlider from '../components/TrendingSlider';
-import { resturentData, sliderItem, tagList } from "../utils/sliderData";
-import { leftSideStyle } from '../utils/styles/GlobalStyle';
+import CardList from '../../components/CardList';
+import SearchScan from '../../components/SearchScan';
+import TrendingSlider from '../../components/TrendingSlider';
+import { resturentData, sliderItem, tagList } from "../../utils/sliderData";
+import { leftSideStyle } from '../../utils/styles/GlobalStyle';
 
 const ResturentList = () => {
   const { classes } = leftSideStyle();
