@@ -34,7 +34,8 @@ export const sliderItem = [
 
 export const resturentData = [
   {
-    image: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/gco34cjdbe15cwzauclp",
+    image:
+      "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/gco34cjdbe15cwzauclp",
     title: "Embers Restaurent",
     category: "Breakfast",
     rating: 4,
@@ -43,16 +44,11 @@ export const resturentData = [
     closingTime: "8.00 PM",
     distance: "1.8 mile",
     address: "1122 CA-41, Fish Camp, CA",
-    categoryItem: [
-      "Snack",
-      "Continental",
-      "Puri",
-      "Sea Food",
-      "Rice",
-    ],
+    categoryItem: ["Snack", "Continental", "Puri", "Sea Food", "Rice"],
   },
   {
-    image: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/c7y9nmd18c7jptvh8caw",
+    image:
+      "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/c7y9nmd18c7jptvh8caw",
     title: "Localis",
     category: "Chinese",
     rating: 3,
@@ -64,7 +60,34 @@ export const resturentData = [
     categoryItem: ["Chow", "Continental", "ChillyRice"],
   },
   {
-    image: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/l4j7pe0l8t6awsyoe584",
+    image:
+      "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/l4j7pe0l8t6awsyoe584",
+    title: "Bistronomie Baume",
+    category: "Dinner",
+    rating: 4,
+    ratingCount: 11,
+    openingTime: "11.00 AM",
+    closingTime: "8.00 PM",
+    distance: "1.8 mile",
+    address: "1122 CA-41, Fish Camp, CA",
+    categoryItem: ["Tandoori", "Continental", "Chilly-Chicken"],
+  },
+  {
+    image:
+      "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/c7y9nmd18c7jptvh8caw",
+    title: "Localis",
+    category: "Chinese",
+    rating: 3,
+    ratingCount: 11,
+    openingTime: "11.00 AM",
+    closingTime: "8.00 PM",
+    distance: "1.8 mile",
+    address: "1122 CA-41, Fish Camp, CA",
+    categoryItem: ["Chow", "Continental", "ChillyRice"],
+  },
+  {
+    image:
+      "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/l4j7pe0l8t6awsyoe584",
     title: "Bistronomie Baume",
     category: "Dinner",
     rating: 4,

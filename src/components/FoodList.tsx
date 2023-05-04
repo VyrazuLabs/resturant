@@ -2,6 +2,7 @@ import { Box, Card, Flex, Group, Image, Title, Text, createStyles, Badge, Grid }
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { US_Currency } from '../config/Helper';
+import { routesName } from '../config/RoutesName';
 import IndicatorIcon from './IndicatorIcon';
 
 interface FoodProps {
@@ -35,7 +36,6 @@ const FoodList = ({ image, foodName, foodCategory, power, price }: FoodProps) =>
         <Card
           shadow="md"
           radius="20px"
-          mb="sm"
           withBorder
           key={foodName}
           className={classes.cardStyle}
@@ -75,7 +75,7 @@ const FoodList = ({ image, foodName, foodCategory, power, price }: FoodProps) =>
                     </Text>
                   </Group>
                   <NavLink
-                    to={`/items/${foodName.replace(/\s+/g, "")}`}
+                    to={`${routesName.AddItem}/${foodName.replace(/\s+/g, "")}`}
                     style={{ textDecoration: "none" }}
                   >
                     <Badge

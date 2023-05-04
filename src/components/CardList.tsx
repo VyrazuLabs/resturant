@@ -1,10 +1,11 @@
-import { Card, createStyles, Grid, Image, Text, Title, Group, Button, Rating, Flex, Box, useMantineTheme, Badge } from '@mantine/core';
+import { Card, createStyles, Image, Text, Title, Group, Rating, Flex, Box, useMantineTheme, Badge, Container } from '@mantine/core';
 import React from 'react'
 import scanIcon from "../assets/logos/scan.svg";
 import locationIcon from "../assets/logos/location-icon.svg";
 import { wrap } from 'module';
 import { useMediaQuery } from '@mantine/hooks';
 import { Link, NavLink } from "react-router-dom";
+import { routesName } from '../config/RoutesName';
 
 interface ResturentProps {
   image: string;
@@ -66,14 +67,13 @@ const CardList = ({ image, category, title, rating, ratingCount, openingTime, cl
   return (
     <>
       <NavLink
-        to={`/details/${title.replace(/\s+/g, '')}`}
+        to={`${routesName.Details}/${title.replace(/\s+/g, "")}`}
         style={{ textDecoration: "none" }}
       >
         <Card
           className={classes.cardStyle}
           shadow="md"
           radius="xl"
-          mb="sm"
           key={title}
           withBorder
         >
@@ -124,7 +124,7 @@ const CardList = ({ image, category, title, rating, ratingCount, openingTime, cl
                   <Text variant="outline">{distance}</Text> |
                   <Text variant="outline">
                     {mobile
-                      ? address.substring(0, 20).concat("...")
+                      ? address.substring(0, 15).concat("...")
                       : address.substring(0, 40).concat("...")}
                   </Text>
                 </Group>

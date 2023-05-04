@@ -1,4 +1,4 @@
-import { ActionIcon, Card, createStyles, Grid, Image, Input } from "@mantine/core";
+import { ActionIcon, Card, createStyles, Flex, Grid, Image, Input } from "@mantine/core";
 import searchIcon from '../assets/logos/search-icon.svg';
 import React from 'react';
 import scanIcon from '../assets/logos/scan.svg';
@@ -31,8 +31,8 @@ const SearchScan = ({ searchInput }: SearchProps) => {
 
   return (
     <>
-      <Grid pb={25}>
-        <Grid.Col span={9}>
+      <Flex pb={25}>
+        <Flex direction="column" w='100%' align="left">
           <Input
             placeholder="Search..."
             className={classes.searchItem}
@@ -52,13 +52,13 @@ const SearchScan = ({ searchInput }: SearchProps) => {
               </div>
             }
           />
-        </Grid.Col>
-        <Grid.Col span={3}>
+        </Flex>
+        <Flex direction="column" align="right" pl='5px'>
           <ActionIcon size={60} className={classes.scanItem}>
             <Image width="auto" height="auto" src={scanIcon} />
           </ActionIcon>
-        </Grid.Col>
-      </Grid>
+        </Flex>
+      </Flex>
     </>
   );
 };

@@ -9,12 +9,9 @@ const TrendingSlider = ({sliderArray}: any) => {
   
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
-    const slides =
-      sliderArray &&
-      sliderArray.map((item: any) => (
+  const slides = sliderArray && sliderArray.map((item: any) => (
         <Carousel.Slide gap={25} key={item.title}>
           <SliderCard {...item} />
-          {/* <Text>{ item.category }</Text> */}
         </Carousel.Slide>
       ));
   

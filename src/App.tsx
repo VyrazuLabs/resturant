@@ -1,4 +1,5 @@
-import { Container, MantineProvider } from "@mantine/core";
+import { Container, MantineProvider, useMantineTheme } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
@@ -10,13 +11,15 @@ import theme from "./utils/styles/theme";
 
 function App() {
   const { classes: leftsideClasses } = leftSideStyle();
+  const mantinetheme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${mantinetheme.breakpoints.sm})`);
 
   return (
     <div className="App">
       <BrowserRouter>
         <MantineProvider theme={theme}>
           <GlobalStyle />
-          <Container className={leftsideClasses.sideBar} fluid>
+          <Container className={mobile? leftsideClasses.sideBar : leftsideClasses.webSideBar} fluid>
           <Header />
           </Container>
           <Routes>{routes}</Routes>

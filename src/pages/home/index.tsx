@@ -25,7 +25,7 @@ const searchInput = (value: any) => {
         <SearchScan searchInput={searchInput} />
         <Grid>
           <Grid.Col span={3}>
-            <Text fz="15px" fw={500} color={mobile?"#FFFFFF" : 'red'}>
+            <Text fz="15px" fw={500} color={mobile ? "#FFFFFF" : "red"}>
               TRENDING TODAY
             </Text>
           </Grid.Col>
@@ -61,10 +61,14 @@ const searchInput = (value: any) => {
           </Grid.Col> */}
         </Grid>
 
-        {resturentData?.length &&
-          resturentData.map((item: any) => (
-            <CardList key={item.title} {...item} />
-          ))}
+        <Grid>
+          {resturentData?.length &&
+            resturentData.map((item: any) => (
+              <Grid.Col md={6}>
+                <CardList key={item.title} {...item} />
+              </Grid.Col>
+            ))}
+        </Grid>
       </Container>
     </div>
   );

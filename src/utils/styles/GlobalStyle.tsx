@@ -45,6 +45,20 @@ export const leftSideStyle = createStyles(() => ({
       zIndex: -1,
     },
   },
+  webSideBar: {
+    position: "relative",
+     "&::after": {
+    content: `""`,
+    position: 'absolute',
+    width: 170,
+    height: '96vh',
+    background: theme.colors?.yellow?.[6],
+    borderRadius: '0px 0px 125px 0px',
+    top: -85,
+    left: 0,
+    zIndex: - 1,
+     },
+  },
   textStyle: {
     fontSize: 11,
   },
