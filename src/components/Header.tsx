@@ -4,9 +4,10 @@ import logo from "../assets/logos/logoicon.svg";
 import logoText from "../assets/logos/logotext.png";
 import cart from "../assets/logos/shoppingcart.svg";
 import hamburger from "../assets/logos/hamburger.svg";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import { Container, ActionIcon, Group, Image } from "@mantine/core";
+import { routesName } from "../config/RoutesName";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -27,9 +28,11 @@ const Header = () => {
             <Image width="auto" height="auto" src={logoText} />
           </Group>
           <Group>
-            <ActionIcon>
-              <Image width="auto" height="auto" src={cart} />
-            </ActionIcon>
+            <NavLink to={`${routesName.Cart}`}>
+              <ActionIcon>
+                <Image width="auto" height="auto" src={cart} />
+              </ActionIcon>
+            </NavLink>
             <ActionIcon>
               <Image width="auto" height="auto" src={hamburger} />
             </ActionIcon>
