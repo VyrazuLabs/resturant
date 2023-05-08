@@ -1,7 +1,8 @@
-import { Card, Container, Grid, Text, Image, Badge, Group, ScrollArea, createStyles, useMantineTheme } from '@mantine/core';
+import { Card, Container, Grid, Text, Image, Badge, Group, ScrollArea, createStyles, useMantineTheme, LoadingOverlay } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CardList from '../../components/CardList';
+import { customLoader } from '../../components/CustomLoader';
 import SearchScan from '../../components/SearchScan';
 import TrendingSlider from '../../components/TrendingSlider';
 import { resturentData, sliderItem, tagList } from "../../utils/sliderData";
@@ -14,13 +15,22 @@ const ResturentList = () => {
 const theme = useMantineTheme();
 const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 const [active, setActive] = useState(null);
+const [showLoader, setShowLoader] = useState(false);
+  
+  useEffect(() => {
+    setShowLoader(true);
+    setTimeout(() => {
+      setShowLoader(false);
+    }, 1000)
+  }, [])
+
 const searchInput = (value: any) => {
   console.log(value);
 };
 
   return (
     <div>
-      {/* className={classes.sideBar} */}
+      <LoadingOverlay loader={customLoader} visible={showLoader} />
       <Container>
         <SearchScan searchInput={searchInput} />
         <Grid>

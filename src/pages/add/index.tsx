@@ -1,15 +1,16 @@
-import { Card, Container, Group, Rating, Title, Text, Image, Grid, useMantineTheme, Divider, Input, Box, Button } from '@mantine/core';
-import React, { useState } from 'react'
+import { Card, Container, Group, Rating, Title, Text, Image, Grid, useMantineTheme, Divider, Input, Box, Button, DEFAULT_THEME, LoadingOverlay } from '@mantine/core';
+import React, { useEffect, useState } from 'react'
 import { itemDetails, restaurantDetails, specialFoodItems } from '../../utils/detailsData';
 import { leftSideStyle } from '../../utils/styles/GlobalStyle';
 import direction from "../../assets/logos/direction-icon.svg";
 import locationIcon from "../../assets/logos/location-icon.svg";
-import { useMediaQuery } from '@mantine/hooks';
+import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 import FoodList from '../../components/FoodList';
 import ExtraItemList from '../../components/ExtraItemList';
 import AddRemoveQuantity from '../../components/AddRemoveQuantity';
 import { US_Currency } from '../../config/Helper';
 import { useItemStyle } from './style';
+import { customLoader } from '../../components/CustomLoader';
 
 const AddItemDetails = () => {
 
@@ -18,17 +19,35 @@ const AddItemDetails = () => {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   const [chefInput, setChefInput] = useState('');
+  const [showLoader, setShowLoader] = useState(false);
+
+    useEffect(() => {
+      setShowLoader(true);
+      setTimeout(() => {
+        setShowLoader(false);
+      }, 1000);
+    }, []);
 
   const requestInput = (value: any) => {
     setChefInput(value);
   };
 
   const updatedItemQuantity = (value: any) => {
-    console.log('item', value);
-    
+    console.log('item', value);   
   }
+
+  const addItems = () => {
+    setShowLoader(true);
+    console.log("toggle11",);      
+    setTimeout(() => {
+      console.log('toggle');      
+      setShowLoader(false);
+    },2000)
+  }
+  
   return (
     <>
+      <LoadingOverlay loader={customLoader} visible={showLoader} />
       <Container pos="relative">
         <Card padding="lg" className={classes.cardStyle}>
           <Card.Section p={10}>
@@ -112,7 +131,7 @@ const AddItemDetails = () => {
           <Group position="left">
             <AddRemoveQuantity quantity={1} newQuantity={updatedItemQuantity} />
           </Group>
-          <Button variant="filled" color="red" radius="11px">
+          <Button variant="filled" color="red" radius="11px" onClick={addItems}>
             Add {US_Currency(42)}
           </Button>
         </Group>
