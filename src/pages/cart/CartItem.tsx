@@ -24,10 +24,10 @@ const CartItem = ({ selectedItem }: any) => {
       selectedItem.length &&
       selectedItem.map((element: any, id: number) => (
         <>
-          <tr key={id}>
-            <td align="left">{element.foodName}</td>
+          <tr key={element.id}>
+            <td align="left" >{element.foodName}</td>
             <td align="left">{US_Currency(element.foodPrice)}</td>
-            <td align="left">
+            <td align="right">
               <AddRemoveQuantity
                 quantity={element.foodQuantity}
                 newQuantity={updatedQuantity}
@@ -36,9 +36,9 @@ const CartItem = ({ selectedItem }: any) => {
           </tr>
 
           <tr>
-            <td colSpan={3} style={{'paddingLeft': '0', paddingBottom: '0', paddingTop: '0'}}>
-              <Accordion variant="filled" classNames={classes}>
-                <Accordion.Item value="customization">
+            <td colSpan={3} style={{'padding': '0'}}>
+              <Accordion chevronPosition="right" variant="filled" transitionDuration={500} classNames={classes}>
+                <Accordion.Item value={element.id}>
                   <Accordion.Control p={0}>
                     <Text size="12px" color="red">
                       Add Ons
@@ -79,12 +79,12 @@ const CartItem = ({ selectedItem }: any) => {
                               {element.notes}
                             </Text>
                           </td>
-                          <td width={"25%"}>
+                          <td width={"25%"} style={{'paddingRight': '0px'}}>
                             <Group spacing={2} position="right">
                               <ActionIcon>
                                 <Image src={editAction} width={"auto"} height={"auto"} />
                               </ActionIcon>{" "}
-                              |
+                              <Divider size='sm' orientation="vertical" />
                               <ActionIcon>
                                 <Image
                                   src={deleteIcon}
@@ -111,12 +111,15 @@ const CartItem = ({ selectedItem }: any) => {
         <Text size="12px" color="red" align="left">
           Main Item
         </Text>
+        <Divider p={0} m={'5px 0 0 0'} size="xs" />
         <Table fontSize={"11px"} verticalSpacing="sm">
           <thead>
             <tr>
               <th>Item</th>
               <th>Unit Price</th>
-              <th>Quantity</th>
+              <th style={{ display: "flex", justifyContent: "right" }}>
+                Quantity
+              </th>
             </tr>
           </thead>
           <tbody>{rows}</tbody>

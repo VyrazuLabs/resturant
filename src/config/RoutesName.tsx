@@ -4,5 +4,6 @@ export const routesName = {
     AddItem: '/add',
     Details: '/details',
     Cart: '/cart',
-    Payment: '/payment'
+    Payment: '/payment',
+    Otp: '/otp'
 }

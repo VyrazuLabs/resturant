@@ -36,13 +36,13 @@ const AddRemoveQuantity = ({quantity, newQuantity}: ItemProps) => {
     }; 
   return (
     <>
-      <Container p={0}>
-          <Group position="left" className={classes.groupStyle}>
+      {/* <Container p={0}> */}
+          <Group position="right" className={classes.groupStyle}>
             <Image onClick={removeQuantity} className={classes.imageStyle} width="auto" height="auto" src={removeIcon} />
             <Text>{ itemQuantity }</Text>
             <Image onClick={addQuantity} className={classes.imageStyle} width="auto" height="auto" src={addIcon} />
           </Group>
-      </Container>
+      {/* </Container> */}
     </>
   );
 }

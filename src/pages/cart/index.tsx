@@ -75,17 +75,16 @@ const CartList = () => {
                     <ActionIcon>
                       <Image src={editAction} width={"auto"} height={"auto"} />
                     </ActionIcon>{" "}
-                    |
+                    <Divider size='sm' orientation="vertical" />
                     <ActionIcon>
                       <Image src={deleteIcon} width={"auto"} height={"auto"} />
                     </ActionIcon>
                   </Group>
                 </Group>
                 <Divider p={0} size="xs" />
-
-                <BillDetails />
               </>
             ))}
+          <BillDetails />
         </Container>
       </>
     );

@@ -1,15 +1,16 @@
 import { Title, Text, Box, Input, Divider, Group, Button } from '@mantine/core';
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { US_Currency } from '../../config/Helper';
 import { cartPriceDetails } from '../../utils/cartData';
 import { useCartStyle } from './style';
-
 
 const BillDetails = () => {
     const { classes } = useCartStyle();
     const [couponCode, setCouponCode] = useState('');
     const [buttonLoading, setButtonLoading] = useState(false);
-
+    const navigate = useNavigate();
+  
     const couponInput = (value: any) => {
     setCouponCode(value);
     };
@@ -19,6 +20,7 @@ const BillDetails = () => {
       setButtonLoading(true);
       setTimeout(() => {
         setButtonLoading(false);
+        navigate('/otp', {replace: true})
       }, 2000);
     };
 
@@ -73,7 +75,7 @@ const BillDetails = () => {
             -{US_Currency(cartPriceDetails.couponApplied)}
           </Text>
         </Group>
-        <Group position="apart" pb={'20px'}>
+        <Group position="apart" pb={'5px'}>
           <Text size="11px" p={"5px 0 2px 0"} fw={400}>
             Other Discount
           </Text>
@@ -82,7 +84,7 @@ const BillDetails = () => {
             -{US_Currency(cartPriceDetails.otherDiscount)}
           </Text>
         </Group>
-        <Group position="center" pb={"10px"}>
+        <Group position="center" pb={"5px"}>
           <Button variant="filled" color="red" radius="11px" onClick={submitPayment} loading={buttonLoading}>
             Checkout {US_Currency(cartPriceDetails.totalPrice)}
           </Button>
