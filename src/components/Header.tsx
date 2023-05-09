@@ -5,6 +5,8 @@ import logoText from "../assets/logos/logotext.png";
 import cart from "../assets/logos/shoppingcart.svg";
 import hamburger from "../assets/logos/hamburger.svg";
 import { NavLink, useNavigate } from "react-router-dom";
+import ecoFood from "../assets/logos/eco-food.jpeg";
+
 
 import { Container, ActionIcon, Group, Image } from "@mantine/core";
 import { routesName } from "../config/RoutesName";
@@ -24,8 +26,9 @@ const Header = () => {
             <Image width="auto" height="auto" src={navArrow} />
           </ActionIcon>
           <Group position="center" spacing="2px">
-            <Image width="auto" height="auto" src={logo} />
-            <Image width="auto" height="auto" src={logoText} />
+            {/* <Image width="auto" height="auto" src={logo} />
+            <Image width="auto" height="auto" src={logoText} /> */}
+            <Image width="100px" height="100px" src={ecoFood} />
           </Group>
           <Group>
             <NavLink to={`${routesName.Cart}`}>
